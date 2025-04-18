@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -14,4 +14,139 @@
     </main>
     <script src="index.js"></script>
   </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE 110 Warmup: Team 14</title>
+  <link rel="stylesheet" href="./assets/custom.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <style>
+    /* Replace CSS with proper figma components after, I also don't know where the custom.css file is so I am just leaving the css here for now */
+    .flip-card {
+      background-color: transparent;
+      width: 100px;
+      height: 150px;
+      perspective: 1000px;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front img,
+    .flip-card-back img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1 class="title">C /14 DS</h1>
+    </header>
+
+    <div class="river"> <!-- poker river -->
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./assets/blank-card.png" alt="face down card">
+          </div>
+          <div class="flip-card-back">
+            <img src="./assets/back-card.png" alt="flipped card back">
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat 4 more cards -->
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./assets/blank-card.png" alt="face down card">
+          </div>
+          <div class="flip-card-back">
+            <img src="./assets/back-card.png" alt="flipped card back">
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./assets/blank-card.png" alt="face down card">
+          </div>
+          <div class="flip-card-back">
+            <img src="./assets/back-card.png" alt="flipped card back">
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./assets/blank-card.png" alt="face down card">
+          </div>
+          <div class="flip-card-back">
+            <img src="./assets/back-card.png" alt="flipped card back">
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./assets/blank-card.png" alt="face down card">
+          </div>
+          <div class="flip-card-back">
+            <img src="./assets/back-card.png" alt="flipped card back">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-deck" style="text-align: center;">
+      <img src="./assets/back-card.png" alt="back of card">
+    </div>
+
+    <footer style="margin-top: 30px; text-align: center;">
+      <!--<button type="submit">Deal</button>-->
+      <button type="submit">Shuffle</button>
+    </footer>
+  </main>
+
+  <script>
+    function flipCard(container) {
+      container.classList.toggle('flipped');
+    }
+  </script>
+</body>
 </html>
