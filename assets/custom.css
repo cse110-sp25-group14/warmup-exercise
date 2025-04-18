@@ -1,3 +1,37 @@
+header {
+    text-align: center;
+    background-color: #c2d4a1; 
+    margin: 0;
+    padding: 20px 0px; 
+}
+
+h1.title {
+    margin: 0;
+}
+
+.river {
+    background-color: #276215; 
+    text-align: center;
+    display: flex; /*now its a flexbox*/
+    flex-shrink: 10;
+    justify-content: true;
+    padding: 5px 200px;
+}
+
+img {
+    height: 25%;
+    width: 25%;
+    padding: 30px;
+}
+
+.card-deck {
+    background-color: #276215; 
+    margin: 0;
+}
+
 footer { 
-    text-align: center
+    text-align: center; 
+    background-color: #8eccff; 
+    margin: 0;
+    padding: 50px 0px;
 }
