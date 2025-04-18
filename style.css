@@ -1,32 +1,27 @@
 .cards {
-    width: 203px;
-    height: 331px;
-    margin: 40px;
-    padding: 20px;
-    position: absolute;
-    box-shadow: 2px 2px 5px grey;
-    background-image: url("./cards/back.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  /* Remove background colors */
-  #card1, #card2, #card3, #card4, #card5 {
-    background-color: transparent;
-  }
-  
-  #card2, #card3, #card4, #card5 {
-    animation-name: shuffle;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-  }
-  
-  @keyframes shuffle {
-    25% { transform: translateX(315px); }
-    50% { transform: translateX(0px); }
-    100% { opacity: 1; }
-  }
-  
+  width: 170px;
+  height: 295px;
+  margin: 40px;
+  padding: 20px;
+  position: absolute;
+  box-shadow: 2px 2px 5px grey;
+  background-image: url('back.png');
+  border-radius: 5%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#card2, #card3, #card4, #card5 {
+  animation-name: shuffle;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes shuffle {
+  25% { transform: translateX(315px); }
+  50% { transform: translateX(0px); }
+  100% { opacity: 1; }
+}
