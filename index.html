@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSE 110 Warmup: Team 14</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        <h1>Full card deck</h1>  
-        <h2>Deal 5 cards based on a button click, and then include animation to see the other side of the card on click. </h2>
-        <button id="deal-button">Deal New Hand</button>
-        <div id="hand-container" class="hand"></div>
-        <div class="cards" id="card1"></div>
-        <div class="cards" id="card2"></div>
-        <div class="cards" id="card3"></div>
-        <div class="cards" id="card4"></div>
-        <div class="cards" id="card5"></div>
-        
-    </main>
-    <script src="index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Card Shuffle</title>
+  <style>
+    .cards {
+      width: 170px;
+      height: 295px;
+      margin: 40px;
+      padding: 20px;
+      position: absolute;
+      box-shadow: 2px 2px 5px grey;
+      background-image: url('back.png');
+      border-radius: 5%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #card2, #card3, #card4, #card5 {
+      animation-name: shuffle;
+      animation-duration: 2s;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+
+    @keyframes shuffle {
+      25% { transform: translateX(315px); }
+      50% { transform: translateX(0px); }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cards" id="card1"></div>
+  <div class="cards" id="card2"></div>
+  <div class="cards" id="card3"></div>
+  <div class="cards" id="card4"></div>
+  <div class="cards" id="card5"></div>
+</body>
 </html>
