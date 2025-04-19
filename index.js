@@ -124,6 +124,8 @@ deal1Btn.addEventListener('click', () => {
 // Core deal logic
 function dealOne(idx, delay) {
   setTimeout(() => {
+    if (!currentDeck[idx]) return; //prevent out of bounds crash
+
     const { suit, rank } = currentDeck[idx];
     const slot = document.getElementById(`slot${idx}`);
     slot.innerHTML = '';
