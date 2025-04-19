@@ -88,6 +88,13 @@ function dealOne(idx, delay) {
       container.classList.toggle('flipped')
     );
 
+    //coloring the text of the cards accordingly
+    if (suit === 'hearts' || suit === 'diamonds') {
+      rankLabel.style.color = '#BC1E24';
+    } else {
+      rankLabel.style.color = 'black';
+    }
+
     slot.appendChild(clone);
   }, delay);
 }
