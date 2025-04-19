@@ -23,12 +23,19 @@ for (let i = 1; i <= 5; i++) {
   deckStack.appendChild(li);
 }
 
-// Generate 5 blank slots
+// Generate 5 blank slots 
 for (let i = 0; i < 5; i++) {
   const li = slotTpl.content.cloneNode(true).firstElementChild;
   li.id = `slot${i}`;
   //river is empty ul
   river.appendChild(li);
+}
+
+//created clearBoard function for clearer code (just clears the HTML of slots)
+function clearBoard(){
+  for (let i = 0; i < 5; i++) {
+    document.getElementById(`slot${i}`).innerHTML = '';
+  }
 }
 
 //builds deck array with each element a data struct containing suit and rank
@@ -45,21 +52,20 @@ function shuffle(deck) {
   return deck;
 }
 
-// Shuffle button to shake the 5 stack (works, not sure why clear slots is commented out; doesn't seem to do anything)
+// Shuffle button to shake the 5 stack
 shuffleBtn.addEventListener('click', () => {
   deckStack.classList.add('shuffling');
   setTimeout(() => deckStack.classList.remove('shuffling'), 1000);
-
   currentDeck = shuffle(buildDeck());
   nextSlotIdx = 0;
-  // // clear slots
-  // for (let i = 0; i < 5; i++) {
-  //   document.getElementById(`slot${i}`).innerHTML = '';
-  // }
+  //clear slots (this was commented out before since the card replacement didn't work, so clearing the board didn't do anything)
+  clearBoard();
 });
 
 // Deal 5, at invervals, currently set to 400ms
 deal5Btn.addEventListener('click', () => {
+  //reset board for visual coherence (optional, won't affect deck logic)
+  clearBoard();
   if (!currentDeck.length) currentDeck = shuffle(buildDeck());
   for (let i = 0; i < 5; i++) {
     dealOne(i, i * 400);
@@ -70,6 +76,14 @@ deal5Btn.addEventListener('click', () => {
 
 // Deal 1 at a time
 deal1Btn.addEventListener('click', () => {
+  //reset board at first and last card
+  if(nextSlotIdx==0 || nextSlotIdx == 5){
+    clearBoard();
+  }
+  //reset board if too many cards
+  if(nextSlotIdx == 5){
+    nextSlotIdx = 0;
+  }
   if (!currentDeck.length) currentDeck = shuffle(buildDeck());
   if (nextSlotIdx < 5) {
     dealOne(nextSlotIdx, 0);
