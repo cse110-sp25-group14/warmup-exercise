@@ -21,8 +21,12 @@ for (let i = 1; i <= 5; i++) {
   deckStack.appendChild(li);
 }
 
-// Generate 5 blank slots
+// Read in 5 slots from last time, else generate 5 blank slots
 for (let i = 0; i < 5; i++) {
+  if (localStorage.getItem('cards')) {
+    //load the saved cards instead of blank cards 
+  } 
+  
   const li = slotTpl.content.cloneNode(true).firstElementChild;
   li.id = `slot${i}`;
   river.appendChild(li);
@@ -31,6 +35,7 @@ for (let i = 0; i < 5; i++) {
 function buildDeck() {
   return suits.flatMap(s => ranks.map(r => ({ suit:s, rank:r })));
 }
+
 function shuffle(deck) {
   for (let i = deck.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
