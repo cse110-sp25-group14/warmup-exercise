@@ -7,7 +7,9 @@ html, body {
     height: 100%;
     width: 100%;
     font-family: sans-serif;
-    background: #f5f5f5;
+    background: #276215;
+    overflow-x: hidden;
+    color: white;
 }
 main {
     display: flex;
@@ -15,16 +17,17 @@ main {
 }
 header {
     text-align: center;
-    background: #c2d4a1;
+    /*background: #2F5191;*/
     padding: 20px;
 }
 
 footer {
     margin: 0;
-    background: #8eccff;
+    /*background: #8eccff;*/
     padding: 30px 0;
     width: 100%;
     box-sizing: border-box;
+    justify-items: center;
 }
 h1.title { margin: 0; }
 
@@ -33,7 +36,8 @@ h1.title { margin: 0; }
     align-items: center;
     justify-content: center;
     gap: 50px;
-    padding: 20px 0;
+    padding: 20px 0px;
+    margin-right: 45px;
 }
 .buttons button {
     margin-left: 10px;
@@ -49,17 +53,21 @@ button {
     border: none;
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    margin-top: 25px;
 }
+
 button:hover { background: #178f8f; }
 
-    /* DECK STACK */
-    .deck-stack {
+/* DECK STACK */
+.deck-stack {
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
-    width: 170px;
-    height: 340px;
+    /*width: 170px;
+    height: 340px;*/
+    width: 160px;
+    height: 255px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -67,12 +75,14 @@ button:hover { background: #178f8f; }
 
 .stack-card {
     list-style: none;
-    width: 170px;
-    height: 295px;
+    /* width: 180px;
+    height: 295px; */
+    width: 160px;
+    height: 255px;
     position: absolute;
-    background: url('back-card.png') center/cover no-repeat;
+    background: url('./cards/back.png') center/cover no-repeat;
     border-radius: 5%;
-    box-shadow: 2px 2px 5px grey;
+    /*box-shadow: 2px 2px 5px grey;*/
 }
 
 /* Deck Offsets to appear stacked */
@@ -135,14 +145,15 @@ button:hover { background: #178f8f; }
     gap: 20px;
     background: #276215;
     box-sizing: border-box;
+    border-color: #276215;
 }
 .card-slot {
     list-style: none;
     width: 100px;
     height: 150px;
     border-radius: 8px;
-    background: url('blank-card.png') center/cover no-repeat;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    /*background: url('./assets/blank-green.png') center/cover no-repeat;*/
+    /*box-shadow: 2px 2px 6px rgba(0,0,0,0.2);*/
     position: relative;
 }
 
@@ -187,8 +198,6 @@ button:hover { background: #178f8f; }
     left: 10px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #1ca5a5;
+    /*color: black;*/
     font-family: 'Courier New', monospace;
 }
-
-  

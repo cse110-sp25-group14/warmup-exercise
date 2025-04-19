@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CSE 110 Warmup: Team 14</title>
-  <link rel="stylesheet" href="./assets/custom.css" />
-  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./custom.css" />
+  <link rel="icon" href="./assets/g14-favicon.png" type="image/png" />
 </head>
 <body>
   <main>
@@ -14,20 +14,15 @@
       <h1 class="title">C /14 DS</h1>
     </header>
 
+    <!-- River as a list -->
+    <ul id="river" class="river"></ul>
+
     <section class="controls">
       <!-- Deck as a list -->
       <ul id="deck-stack" class="deck-stack"></ul>
-      <div class="buttons">
-        <button id="shuffle-button">Shuffle</button>
-        <button id="deal-5-button">Deal 5</button>
-        <button id="deal-1-button">Deal 1</button>
-      </div>
     </section>
 
-    <!-- River as a list -->
-    <ul id="river" class="river"></ul>
   </main>
-  <footer></footer>
   <!-- Templates (defined once each) -->
   <template id="stack-card-template">
     <li class="stack-card"></li>
@@ -41,7 +36,7 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="./assets/back-card.png" alt="face-down card" />
+          <img src="./cards/back.png" alt="face-down card" />
         </div>
         <div class="flip-card-back">
           <img class="card-image" src="" alt="card face" />
@@ -50,7 +45,13 @@
       </div>
     </div>
   </template>
-
+  <footer>
+    <div class="buttons">
+      <button id="shuffle-button">Shuffle</button>
+      <button id="deal-5-button">Deal 5</button>
+      <button id="deal-1-button">Deal 1</button>
+    </div>
+  </footer>
   <script src="index.js"></script>
 </body>
 </html>
