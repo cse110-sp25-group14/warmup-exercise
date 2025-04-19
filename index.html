@@ -17,17 +17,11 @@
     <section class="controls">
       <!-- Deck as a list -->
       <ul id="deck-stack" class="deck-stack"></ul>
-      <div class="buttons">
-        <button id="shuffle-button">Shuffle</button>
-        <button id="deal-5-button">Deal 5</button>
-        <button id="deal-1-button">Deal 1</button>
-      </div>
     </section>
 
     <!-- River as a list -->
     <ul id="river" class="river"></ul>
   </main>
-  <footer></footer>
   <!-- Templates (defined once each) -->
   <template id="stack-card-template">
     <li class="stack-card"></li>
@@ -50,7 +44,13 @@
       </div>
     </div>
   </template>
-
+  <footer>
+    <div class="buttons">
+      <button id="shuffle-button">Shuffle</button>
+      <button id="deal-5-button">Deal 5</button>
+      <button id="deal-1-button">Deal 1</button>
+    </div>
+  </footer>
   <script src="index.js"></script>
 </body>
 </html>
