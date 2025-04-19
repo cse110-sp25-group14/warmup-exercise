@@ -41,6 +41,7 @@ function shuffle(deck) {
     const j = Math.floor(Math.random() * (i + 1));
     [deck[i], deck[j]] = [deck[j], deck[i]];
   }
+  localStorage.setItem('fullDeck', deck); //i believe this saves the deck to local storage?
   return deck;
 }
 
@@ -50,6 +51,7 @@ shuffleBtn.addEventListener('click', () => {
   setTimeout(() => deckStack.classList.remove('shuffling'), 1000);
 
   currentDeck = shuffle(buildDeck());
+  localStorage.setItem('currentDeck', currentDeck); //This should save the 5 visible cards. This is in the wrong place, needs to be moved.  
   nextSlotIdx = 0;
   // // clear slots
   // for (let i = 0; i < 5; i++) {
