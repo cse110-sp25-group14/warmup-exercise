@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CSE 110 Warmup: Team 14</title>
-  <link rel="stylesheet" href="./assets/custom.css" />
+  <link rel="stylesheet" href="./custom.css" />
   <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 <body>
@@ -14,13 +14,14 @@
       <h1 class="title">C /14 DS</h1>
     </header>
 
+    <!-- River as a list -->
+    <ul id="river" class="river"></ul>
+
     <section class="controls">
       <!-- Deck as a list -->
       <ul id="deck-stack" class="deck-stack"></ul>
     </section>
 
-    <!-- River as a list -->
-    <ul id="river" class="river"></ul>
   </main>
   <!-- Templates (defined once each) -->
   <template id="stack-card-template">
@@ -35,7 +36,7 @@
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="./assets/back-card.png" alt="face-down card" />
+          <img src="./cards/back.png" alt="face-down card" />
         </div>
         <div class="flip-card-back">
           <img class="card-image" src="" alt="card face" />
