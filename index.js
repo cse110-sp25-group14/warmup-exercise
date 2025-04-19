@@ -16,8 +16,10 @@ let nextSlotIdx = 0;
 
 // Generate 5‑layered deck
 for (let i = 1; i <= 5; i++) {
+// clones card-slot (first li under stackTpl) and changes id then adds to deck
   const li = stackTpl.content.cloneNode(true).firstElementChild;
   li.id = `card${i}`;
+  //deckStack is empty ul
   deckStack.appendChild(li);
 }
 
@@ -25,12 +27,16 @@ for (let i = 1; i <= 5; i++) {
 for (let i = 0; i < 5; i++) {
   const li = slotTpl.content.cloneNode(true).firstElementChild;
   li.id = `slot${i}`;
+  //river is empty ul
   river.appendChild(li);
 }
 
+//builds deck array with each element a data struct containing suit and rank
 function buildDeck() {
   return suits.flatMap(s => ranks.map(r => ({ suit:s, rank:r })));
 }
+
+//shuffle algo written by chat (probably works)
 function shuffle(deck) {
   for (let i = deck.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -39,7 +45,7 @@ function shuffle(deck) {
   return deck;
 }
 
-// Shuffle button to shake the 5 stack
+// Shuffle button to shake the 5 stack (works, not sure why clear slots is commented out; doesn't seem to do anything)
 shuffleBtn.addEventListener('click', () => {
   deckStack.classList.add('shuffling');
   setTimeout(() => deckStack.classList.remove('shuffling'), 1000);
@@ -57,7 +63,9 @@ deal5Btn.addEventListener('click', () => {
   if (!currentDeck.length) currentDeck = shuffle(buildDeck());
   for (let i = 0; i < 5; i++) {
     dealOne(i, i * 400);
+    currentDeck.shift();
   }
+
 });
 
 // Deal 1 at a time
@@ -65,6 +73,7 @@ deal1Btn.addEventListener('click', () => {
   if (!currentDeck.length) currentDeck = shuffle(buildDeck());
   if (nextSlotIdx < 5) {
     dealOne(nextSlotIdx, 0);
+    currentDeck.shift();
     nextSlotIdx++;
   }
 });
