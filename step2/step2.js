@@ -1,4 +1,4 @@
-// index.js
+// step2/step2.js
 const suits = ["spades", "hearts", "diamonds", "clubs"];
 const ranks = [
     "A",
@@ -118,7 +118,7 @@ function dealOne(idx, delay) {
         const imgElem = clone.querySelector(".card-image");
         const rankLabel = clone.querySelector(".rank-label");
 
-        imgElem.src = `./cards/${suit}.png`;
+        imgElem.src = `../cards/${suit}.png`;
         rankLabel.textContent = rank;
 
         container.addEventListener("click", () =>

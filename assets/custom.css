@@ -80,7 +80,7 @@ button:hover { background: #178f8f; }
     width: 160px;
     height: 255px;
     position: absolute;
-    background: url('./cards/back.png') center/cover no-repeat;
+    background: url('../cards/back.png') center/cover no-repeat;
     border-radius: 5%;
     /*box-shadow: 2px 2px 5px grey;*/
 }
