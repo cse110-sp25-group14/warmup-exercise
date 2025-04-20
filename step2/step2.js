@@ -29,6 +29,31 @@ let currentDeck = [];
 let nextSlotIdx = 0;
 let eventInProgress = false;
 
+//localStorage function
+function saveState() {
+    localStorage.setItem("deck", JSON.stringify(currentDeck));
+    localStorage.setItem("nextSlotIdx", nextSlotIdx.toString());
+}
+function loadState() { //loads previous state if it exists
+    const savedDeck = localStorage.getItem("deck");
+    const savedIdx = localStorage.getItem("nextSlotIdx");
+
+    if (savedDeck) {
+        currentDeck = JSON.parse(savedDeck);
+    }
+    if (savedIdx) {
+        nextSlotIdx = parseInt(savedIdx, 10);
+    }
+
+    clearBoard();
+    for (let i = 0; i < nextSlotIdx; i++) {
+        if (currentDeck[i]) {
+            dealOne(i, 0, currentDeck[i]);
+        }
+    }
+}
+
+
 // Generate 5‑layered deck
 for (let i = 1; i <= 5; i++) {
     // clones card-slot (first li under stackTpl) and changes id then adds to deck
@@ -45,13 +70,14 @@ for (let i = 0; i < 5; i++) {
     //river is empty ul
     river.appendChild(li);
 }
+loadState();
 
 //created clearBoard function for clearer code (just clears the HTML of slots)
 function clearBoard() {
     for (let i = 0; i < 5; i++) {
         document.getElementById(`slot${i}`).innerHTML = "";
     }
-    nextSlotIdx = 0;
+    //nextSlotIdx = 0; //--check if I actually should remove this
 }
 
 //builds deck array with each element a data struct containing suit and rank
@@ -78,6 +104,7 @@ shuffleBtn.addEventListener("click", () => {
     nextSlotIdx = 0;
     //clear slots (this was commented out before since the card replacement didn't work, so clearing the board didn't do anything)
     clearBoard();
+    saveState();
 });
 
 // Deal 5, at invervals, currently set to 400ms
@@ -90,8 +117,10 @@ deal5Btn.addEventListener("click", () => {
     if (!currentDeck.length) currentDeck = shuffle(buildDeck());
     for (let i = 0; i < 5; i++) {
         dealOne(i, i * 400);
-        currentDeck.shift();
+        //currentDeck.shift();
     }
+    nextSlotIdx = 5;
+    saveState();
     setTimeout(() => {
         eventInProgress = false;
     }, 4 * 400);
@@ -112,15 +141,16 @@ deal1Btn.addEventListener("click", () => {
     if (!currentDeck.length) currentDeck = shuffle(buildDeck());
     if (nextSlotIdx < 5) {
         dealOne(nextSlotIdx, 0);
-        currentDeck.shift();
+        //currentDeck.shift();
         nextSlotIdx++;
     }
+    saveState();
 });
 
 // Core deal logic
-function dealOne(idx, delay) {
+function dealOne(idx, delay, card = null) {
     setTimeout(() => {
-        const { suit, rank } = currentDeck[idx];
+        const { suit, rank } = card || currentDeck[idx];
         const slot = document.getElementById(`slot${idx}`);
         slot.innerHTML = "";
 
