@@ -7,7 +7,7 @@ html, body {
     height: 100%;
     width: 100%;
     font-family: sans-serif;
-    background: #276215;
+    background: #000000;
     overflow-x: hidden;
     color: white;
 }
@@ -48,15 +48,16 @@ button {
     font-size: 1.1rem;
     border-radius: 8px;
     font-weight: bold;
-    background: #1ca5a5;
-    color: white;
+    background: #ffffff;
+    color: #BC1E24;
     border: none;
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     margin-top: 25px;
 }
 
-button:hover { background: #178f8f; }
+button:hover { background: #BC1E24; 
+    color: #ffffff;}
 
 /* DECK STACK */
 .deck-stack {
@@ -66,8 +67,8 @@ button:hover { background: #178f8f; }
     position: relative;
     /*width: 170px;
     height: 340px;*/
-    width: 160px;
-    height: 255px;
+    width: 120px;
+    height: 190px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -77,8 +78,8 @@ button:hover { background: #178f8f; }
     list-style: none;
     /* width: 180px;
     height: 295px; */
-    width: 160px;
-    height: 255px;
+    width: 120px;
+    height: 190px;
     position: absolute;
     background: url('../cards/back.png') center/cover no-repeat;
     border-radius: 5%;
@@ -143,18 +144,19 @@ button:hover { background: #178f8f; }
     display: flex;
     justify-content: center;
     gap: 20px;
-    background: #276215;
+    background: #000000;
     box-sizing: border-box;
-    border-color: #276215;
+    border-color: #000000;
 }
 .card-slot {
     list-style: none;
-    width: 100px;
-    height: 150px;
+    width: 120px;
+    height: 190px;
     border-radius: 8px;
-    /*background: url('./assets/blank-green.png') center/cover no-repeat;*/
+    background: url('Component4.png') center/cover no-repeat;
     /*box-shadow: 2px 2px 6px rgba(0,0,0,0.2);*/
     position: relative;
+    color: #ffffff;
 }
 
 /* FLIP‑CARD */
