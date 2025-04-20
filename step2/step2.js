@@ -27,6 +27,7 @@ const flipTpl = document.getElementById("flip-card-template");
 
 let currentDeck = [];
 let nextSlotIdx = 0;
+let eventInProgress = false;
 
 // Generate 5‑layered deck
 for (let i = 1; i <= 5; i++) {
@@ -69,6 +70,8 @@ function shuffle(deck) {
 
 // Shuffle button to shake the 5 stack
 shuffleBtn.addEventListener("click", () => {
+    if (eventInProgress) return;
+
     deckStack.classList.add("shuffling");
     setTimeout(() => deckStack.classList.remove("shuffling"), 1000);
     currentDeck = shuffle(buildDeck());
@@ -79,6 +82,9 @@ shuffleBtn.addEventListener("click", () => {
 
 // Deal 5, at invervals, currently set to 400ms
 deal5Btn.addEventListener("click", () => {
+    if (eventInProgress) return;
+    eventInProgress = true;
+
     //reset board for visual coherence (optional, won't affect deck logic)
     clearBoard();
     if (!currentDeck.length) currentDeck = shuffle(buildDeck());
@@ -86,10 +92,15 @@ deal5Btn.addEventListener("click", () => {
         dealOne(i, i * 400);
         currentDeck.shift();
     }
+    setTimeout(() => {
+        eventInProgress = false;
+    }, 4 * 400);
 });
 
 // Deal 1 at a time
 deal1Btn.addEventListener("click", () => {
+    if (eventInProgress) return;
+
     //reset board at first and last card
     if (nextSlotIdx == 0 || nextSlotIdx == 5) {
         clearBoard();
