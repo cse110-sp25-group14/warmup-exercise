@@ -72,7 +72,9 @@ for (let i = 0; i < 5; i++) {
 }
 loadState();
 
-//created clearBoard function for clearer code (just clears the HTML of slots)
+/**
+ * created clearBoard function for clearer code (just clears the HTML of slots) 
+ */
 function clearBoard() {
     for (let i = 0; i < 5; i++) {
         document.getElementById(`slot${i}`).innerHTML = "";
@@ -80,12 +82,19 @@ function clearBoard() {
     //nextSlotIdx = 0; //--check if I actually should remove this
 }
 
-//builds deck array with each element a data struct containing suit and rank
+
+/**
+ * builds deck array with each element a data struct containing suit and rank
+ */
 function buildDeck() {
     return suits.flatMap((s) => ranks.map((r) => ({ suit: s, rank: r })));
 }
 
-//shuffle algo written by chat (probably works)
+/**
+ * shuffle algo written by chat (probably works)
+ * @param {*} deck
+ * @returns
+ */
 function shuffle(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -94,7 +103,9 @@ function shuffle(deck) {
     return deck;
 }
 
-// Shuffle button to shake the 5 stack
+/**
+ * Shuffle button to shake the 5 stack
+ */
 shuffleBtn.addEventListener("click", () => {
     if (eventInProgress) return;
 
@@ -149,6 +160,7 @@ deal1Btn.addEventListener("click", () => {
 
 // Core deal logic
 function dealOne(idx, delay, card = null) {
+
     setTimeout(() => {
         const { suit, rank } = card || currentDeck[idx];
         const slot = document.getElementById(`slot${idx}`);
