@@ -1,0 +1,44 @@
+<!--PT 3 !!! GPTS intial run pts2 code with gpt mods for now-- will fix this as we go-->
+
+
+<body>
+    <main>
+      <header>
+        <img src="../Warm_Up-12-removebg-preview.png" alt="logo" style="width: 200px;">
+        <h1>Blackjack Game</h1>
+      </header>
+  
+      <section class="game-board">
+        <h2>Dealer's Hand</h2>
+        <ul id="dealer-hand" class="hand"></ul>
+  
+        <h2>Player's Hand</h2>
+        <ul id="player-hand" class="hand"></ul>
+      </section>
+  
+      <section class="controls">
+        <button id="start-button">Start Game</button>
+        <button id="hit-button" disabled>Hit</button>
+        <button id="stand-button" disabled>Stand</button>
+        <div id="message" class="message"></div>
+      </section>
+    </main>
+  
+    <!-- Templates -->
+    <template id="flip-card-template">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../cards/back.png" alt="face-down card" />
+          </div>
+          <div class="flip-card-back">
+            <img class="card-image" src="" alt="card face" />
+            <div class="rank-label"></div>
+          </div>
+        </div>
+      </div>
+    </template>
+  
+    <script src="step3.js"></script>
+  </body>
+  
